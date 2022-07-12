@@ -107,7 +107,6 @@ export default {
       this.logging = false
       const loginRes = res.data
       if (loginRes.state == 200) {
-        //const {user, permissions, roles} = loginRes.data
         const user = {
           name: '徐向东',
           avatar: '@AVATAR',
@@ -115,20 +114,16 @@ export default {
           position: '@POSITION'
         }
         this.setUser(user)
-
-        this.setPermissions([{id: 'admin'}])
-        //this.setRoles([{ id: '3'}])
+        const role = loginRes.data.role
+        if (role === '0') {
+          this.setPermissions([{ id: 'admin' }])
+        } else {
+          this.setPermissions([{}])
+          this.setRoles([{ id: role }])
+        }
         setAuthorization({ token: loginRes.data.token, expireAt: new Date(loginRes.data.expireAt) })
         loadRoutes("")
         this.$router.push('/home')
-        //this.$message.success("giao!!!!!!!!!!!!!", 4)
-        // // 获取路由配置
-        // getRoutesConfig().then(result => {
-        //   const routesConfig = result.data.data
-        //   loadRoutes(routesConfig)
-        //   this.$router.push('/home')
-        //   this.$message.success(loginRes.message, 4)
-        // })
       } else {
         this.error = loginRes.message
       }
