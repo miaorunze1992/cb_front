@@ -39,7 +39,12 @@ const options = {
           name: '父级路由1',
           meta: {
             icon: 'dashboard',
+            authority: {
+              permission: 'form1',
+              role: 'admin'
+            },
           },
+          
           component: BlankView,
           children: [
             {
