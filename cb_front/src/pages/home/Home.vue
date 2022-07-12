@@ -7,7 +7,7 @@
 <script>
   import {mapState} from 'vuex'
   export default {
-    name: 'Demo',
+    name: 'Home',
     i18n: require('./i18n'),
     data() {
       return {

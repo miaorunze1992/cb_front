@@ -2,6 +2,10 @@ import TabsView from '@/layouts/tabs/TabsView'
 import BlankView from '@/layouts/BlankView'
 import PageView from '@/layouts/PageView'
 
+/**
+ * 修改icon可参照https://2x.antdv.com/components/icon
+ */
+
 // 路由配置
 const options = {
   routes: [
@@ -27,45 +31,152 @@ const options = {
       redirect: '/login',
       children: [
         {
-          path: 'demo',
-          name: '演示页',
+          path: 'home',
+          name: '管理ページ',
           meta: {
-            icon: 'file-ppt'
+            icon: 'home'
           },
-          component: () => import('@/pages/demo')
+          component: () => import('@/pages/home')
         },
         {
-          path: 'parent1',
-          name: '父级路由1',
+          path: 'teacher',
+          name: '受講管理',
           meta: {
-            icon: 'dashboard',
+            icon: 'book',
             authority: {
-              permission: 'form1',
-              role: 'admin'
+              //permission: 'form1',
+              role: 'admin' | 'teacher'
             },
           },
           
           component: BlankView,
           children: [
             {
-              path: 'demo1',
-              name: '演示页面1',
-              component: () => import('@/pages/demo'),
+              path: 'study_data',
+              name: '培训大数据',
+              meta: {
+                icon: 'book',
+                authority: {
+                  //permission: 'form1',
+                  role: 'admin' | 'teacher'
+                },
+              },
+              component: () => import('@/pages/home'),
+            },
+            {
+              path: 'student_manager',
+              name: '学員管理',
+              meta: {
+                icon: 'user',
+                authority: {
+                  //permission: 'form1',
+                  role: 'admin' | 'teacher'
+                },
+              },
+              component: () => import('@/pages/home'),
+            },
+            {
+              path: 'course_manager',
+              name: 'コース管理',
+              meta: {
+                icon: 'profile',
+                authority: {
+                  //permission: 'form1',
+                  role: 'admin' | 'teacher'
+                },
+              },
+              component: () => import('@/pages/home'),
+            },
+            {
+              path: 'question_manager',
+              name: '質問管理',
+              meta: {
+                icon: 'question',
+                authority: {
+                  //permission: 'form1',
+                  role: 'admin' | 'teacher'
+                },
+              },
+              component: () => import('@/pages/home'),
+            },
+            {
+              path: 'player_deadline',
+              name: '播放期限设定',
+              meta: {
+                icon: 'play-circle',
+                authority: {
+                  //permission: 'form1',
+                  role: 'admin' | 'teacher'
+                },
+              },
+              component: () => import('@/pages/home'),
+            },
+            {
+              path: 'skill_manager',
+              name: '技術分野管理',
+              meta: {
+                icon: 'wallet',
+                authority: {
+                  //permission: 'form1',
+                  role: 'admin' | 'teacher'
+                },
+              },
+              component: () => import('@/pages/home'),
+            },
+            {
+              path: 'progress_manager',
+              name: '学習進捗管理',
+              meta: {
+                icon: 'code',
+                authority: {
+                  //permission: 'form1',
+                  role: 'admin' | 'teacher'
+                },
+              },
+              component: () => import('@/pages/home'),
+            },
+            {
+              path: 'q_a_manager',
+              name: '問題集管理',
+              meta: {
+                icon: 'bulb',
+                authority: {
+                  //permission: 'form1',
+                  role: 'admin' | 'teacher'
+                },
+              },
+              component: () => import('@/pages/home'),
+            },
+            {
+              path: 'xxxx',
+              name: '受講予約',
+              meta: {
+                icon: 'calendar',
+                authority: {
+                  //permission: 'form1',
+                  role: 'admin' | 'teacher'
+                },
+              },
+              component: () => import('@/pages/home'),
             }
           ]
         },
         {
-          path: 'parent2',
-          name: '父级路由2',
+          path: 'sale',
+          name: '営業管理',
           meta: {
-            icon: 'form'
+            icon: 'form',
+            authority: {
+              //permission: 'form1',
+              role: 'admin' | 'sale'
+            },
           },
           component: PageView,
           children: [
             {
-              path: 'demo2',
-              name: '演示页面2',
-              component: () => import('@/pages/demo'),
+              path: 'todo',
+              name: 'TODO',
+              component: () => import('@/pages/home'),
             }
           ]
         },
@@ -74,6 +185,10 @@ const options = {
           name: '异常页',
           meta: {
             icon: 'warning',
+            authority: {
+              //permission: 'form1',
+              role: 'admin'
+            }
           },
           component: BlankView,
           children: [
@@ -101,12 +216,12 @@ const options = {
           name: '验权页面',
           path: 'auth/demo',
           meta: {
-            icon: 'file-ppt',
+            icon: 'home',
             authority: {
               permission: 'form',
-              role: 'manager'
+              role: 'admin'
             },
-            component: () => import('@/pages/demo')
+            component: () => import('@/pages/home')
           }
         }
       ]

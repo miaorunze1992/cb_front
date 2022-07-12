@@ -10,7 +10,7 @@ module.exports = {
     },
     US: {
       content: 'Demo Page',
-      description: 'This is a demo page'
+      description: 'This is a home page'
     }
   }
 }

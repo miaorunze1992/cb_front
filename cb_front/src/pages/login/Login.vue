@@ -121,7 +121,7 @@ export default {
         getRoutesConfig().then(result => {
           const routesConfig = result.data.data
           loadRoutes(routesConfig)
-          this.$router.push('/demo')
+          this.$router.push('/home')
           this.$message.success(loginRes.message, 4)
         })
       } else {
