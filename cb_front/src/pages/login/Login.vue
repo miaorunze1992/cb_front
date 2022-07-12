@@ -20,7 +20,7 @@
               </a-input>
             </a-form-item>
             <a-form-item>
-              <a-input size="large" placeholder="888888" autocomplete="autocomplete" type="password"
+              <a-input size="large" placeholder="123" autocomplete="autocomplete" type="password"
                 v-decorator="['password', { rules: [{ required: true, message: '请输入密码', whitespace: true }] }]">
                 <a-icon slot="prefix" type="lock" />
               </a-input>
@@ -115,12 +115,13 @@ export default {
           position: '@POSITION'
         }
         this.setUser(user)
-       //this.setPermissions([{id: 'form', operation: ['add', 'edit']}])
-        this.setRoles([{ id: 'admin', operation: ['add', 'edit', 'delete'] }])
+
+        this.setPermissions([{id: 'admin'}])
+        //this.setRoles([{ id: '3'}])
         setAuthorization({ token: loginRes.data.token, expireAt: new Date(loginRes.data.expireAt) })
         loadRoutes("")
         this.$router.push('/home')
-        this.$message.success(loginRes.message, 4)
+        //this.$message.success("giao!!!!!!!!!!!!!", 4)
         // // 获取路由配置
         // getRoutesConfig().then(result => {
         //   const routesConfig = result.data.data

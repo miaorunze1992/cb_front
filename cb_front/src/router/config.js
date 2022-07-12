@@ -19,16 +19,6 @@ const options = {
       component: () => import('@/pages/login')
     },
     {
-      path: '*',
-      name: '404',
-      component: () => import('@/pages/exception/404'),
-    },
-    {
-      path: '/403',
-      name: '403',
-      component: () => import('@/pages/exception/403'),
-    },
-    {
       path: '/',
       name: '首页',
       component: TabsView,
@@ -46,11 +36,11 @@ const options = {
           path: 'teacher',
           name: '受講管理',
           meta: {
-            icon: 'book',
-            // authority: {
-            //   //permission: 'form1',
-            //   role: '0' | '1'
-            // },
+            icon: 'team',
+            authority: {
+              permission: 'admin',
+              role: '1'
+            },
           },
           
           component: BlankView,
@@ -61,8 +51,8 @@ const options = {
               meta: {
                 icon: 'book',
                 authority: {
-                  //permission: 'form1',
-                  role: 'admin' | 'teacher'
+                  permission: 'admin',
+                  role: '1'
                 },
               },
               component: () => import('@/pages/home'),
@@ -73,8 +63,8 @@ const options = {
               meta: {
                 icon: 'user',
                 authority: {
-                  //permission: 'form1',
-                  role: 'admin' | 'teacher'
+                  permission: 'admin',
+                  role: '1'
                 },
               },
               component: () => import('@/pages/home'),
@@ -85,20 +75,20 @@ const options = {
               meta: {
                 icon: 'profile',
                 authority: {
-                  //permission: 'form1',
-                  role: 'admin' | 'teacher'
+                  permission: 'admin',
+                  role: '1'
                 },
               },
               component: () => import('@/pages/home'),
             },
             {
-              path: 'question_manager',
+              path: 'question_manager_tc',
               name: '質問管理',
               meta: {
                 icon: 'question',
                 authority: {
-                  //permission: 'form1',
-                  role: 'admin' | 'teacher'
+                  permission: 'admin',
+                  role: '1'
                 },
               },
               component: () => import('@/pages/home'),
@@ -109,8 +99,8 @@ const options = {
               meta: {
                 icon: 'play-circle',
                 authority: {
-                  //permission: 'form1',
-                  role: 'admin' | 'teacher'
+                  permission: 'admin',
+                  role: '1'
                 },
               },
               component: () => import('@/pages/home'),
@@ -121,44 +111,123 @@ const options = {
               meta: {
                 icon: 'wallet',
                 authority: {
-                  //permission: 'form1',
-                  role: 'admin' | 'teacher'
+                  permission: 'admin',
+                  role: '1'
                 },
               },
               component: () => import('@/pages/home'),
             },
             {
-              path: 'progress_manager',
+              path: 'progress_manager_tc',
               name: '学習進捗管理',
               meta: {
                 icon: 'code',
                 authority: {
-                  //permission: 'form1',
-                  role: 'admin' | 'teacher'
+                  permission: 'admin',
+                  role: '1'
                 },
               },
               component: () => import('@/pages/home'),
             },
             {
-              path: 'q_a_manager',
+              path: 'q_a_manager_tc',
               name: '問題集管理',
               meta: {
                 icon: 'bulb',
                 authority: {
-                  //permission: 'form1',
-                  role: 'admin' | 'teacher'
+                  permission: 'admin',
+                  role: '1'
                 },
               },
               component: () => import('@/pages/home'),
             },
             {
-              path: 'xxxx',
+              path: 'book_date_tc',
               name: '受講予約',
               meta: {
                 icon: 'calendar',
                 authority: {
-                  //permission: 'form1',
-                  role: 'admin' | 'teacher'
+                  permission: 'admin',
+                  role: '1'
+                },
+              },
+              component: () => import('@/pages/home'),
+            }
+          ]
+        },
+        {
+          path: 'student',
+          name: '受講管理',
+          meta: {
+            icon: 'user',
+            authority: {
+              permission: 'admin',
+              role: '2'
+            },
+          },
+          
+          component: BlankView,
+          children: [
+            {
+              path: 'study_data',
+              name: '培训大数据',
+              meta: {
+                icon: 'book',
+                authority: {
+                  permission: 'admin',
+                  role: '2'
+                },
+              },
+              component: () => import('@/pages/home'),
+            },
+           
+            {
+              path: 'question_manager_st',
+              name: '質問管理',
+              meta: {
+                icon: 'question',
+                authority: {
+                  permission: 'admin',
+                  role: '2'
+                },
+              },
+              component: () => import('@/pages/home'),
+            },
+          
+            {
+              path: 'progress_manager_st',
+              name: '学習進捗管理',
+              meta: {
+                icon: 'code',
+                authority: {
+                  permission: 'admin',
+                  role: '2'
+                },
+              },
+              component: () => import('@/pages/home'),
+            },
+         
+            {
+              path: 'q_a_manager_st',
+              name: '問題集管理',
+              meta: {
+                icon: 'bulb',
+                authority: {
+                  permission: 'admin',
+                  role: '2'
+                },
+              },
+              component: () => import('@/pages/home'),
+            },
+        
+            {
+              path: 'book_date_st',
+              name: '受講予約',
+              meta: {
+                icon: 'calendar',
+                authority: {
+                  permission: 'admin',
+                  role: '2'
                 },
               },
               component: () => import('@/pages/home'),
@@ -171,8 +240,8 @@ const options = {
           meta: {
             icon: 'form',
             authority: {
-              //permission: 'form1',
-              role: 'admin' | 'sale'
+              permission: 'admin',
+              role: '3'
             },
           },
           component: PageView,
@@ -190,8 +259,8 @@ const options = {
           meta: {
             icon: 'warning',
             authority: {
-              //permission: 'form1',
-              role: 'admin'
+              permission: 'admin',
+              role: '0'
             }
           },
           component: BlankView,
@@ -215,18 +284,6 @@ const options = {
               component: () => import('@/pages/exception/500')
             }
           ]
-        },
-        {
-          name: '验权页面',
-          path: 'auth/demo',
-          meta: {
-            icon: 'home',
-            authority: {
-              permission: 'form',
-              role: 'admin'
-            },
-            component: () => import('@/pages/home')
-          }
         }
       ]
     }
