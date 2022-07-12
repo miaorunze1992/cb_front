@@ -36,6 +36,14 @@ const routerMap = {
     renderMenu: false,
     component: () => import("@/pages/home"),
   },
+  teacher: {
+    name: "受講管理",
+    authority: {
+      //permission: 'form1',
+      role: '0' | '1'
+    },
+    component: () => import("@/pages/home"),
+  },
   exp403: {
     authority: "*",
     name: "exp403",

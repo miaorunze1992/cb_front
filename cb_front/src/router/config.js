@@ -3,7 +3,11 @@ import BlankView from '@/layouts/BlankView'
 import PageView from '@/layouts/PageView'
 
 /**
- * 修改icon可参照https://2x.antdv.com/components/icon
+ * 图标：修改icon可参照https://2x.antdv.com/components/icon
+ */
+
+/**
+ * 权限配置： 0:admin管理員 1:教師 2:學員 3:試學 4:營業 5:TODO
  */
 
 // 路由配置
@@ -43,10 +47,10 @@ const options = {
           name: '受講管理',
           meta: {
             icon: 'book',
-            authority: {
-              //permission: 'form1',
-              role: 'admin' | 'teacher'
-            },
+            // authority: {
+            //   //permission: 'form1',
+            //   role: '0' | '1'
+            // },
           },
           
           component: BlankView,

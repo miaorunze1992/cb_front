@@ -69,7 +69,8 @@
 
 <script>
 import CommonLayout from '@/layouts/CommonLayout'
-import { login, getRoutesConfig } from '@/services/user'
+// import { login, getRoutesConfig } from '@/services/user'
+import { login } from '@/services/user'
 import { setAuthorization } from '@/utils/request'
 import { loadRoutes } from '@/utils/routerUtil'
 import { mapMutations } from 'vuex'
@@ -114,16 +115,19 @@ export default {
           position: '@POSITION'
         }
         this.setUser(user)
-        //this.setPermissions([{id: 'form', operation: ['add', 'edit']}])
+       //this.setPermissions([{id: 'form', operation: ['add', 'edit']}])
         this.setRoles([{ id: 'admin', operation: ['add', 'edit', 'delete'] }])
         setAuthorization({ token: loginRes.data.token, expireAt: new Date(loginRes.data.expireAt) })
-        // 获取路由配置
-        getRoutesConfig().then(result => {
-          const routesConfig = result.data.data
-          loadRoutes(routesConfig)
-          this.$router.push('/home')
-          this.$message.success(loginRes.message, 4)
-        })
+        loadRoutes("")
+        this.$router.push('/home')
+        this.$message.success(loginRes.message, 4)
+        // // 获取路由配置
+        // getRoutesConfig().then(result => {
+        //   const routesConfig = result.data.data
+        //   loadRoutes(routesConfig)
+        //   this.$router.push('/home')
+        //   this.$message.success(loginRes.message, 4)
+        // })
       } else {
         this.error = loginRes.message
       }
